@@ -19,11 +19,9 @@ module.exports.get_customer_items = {
 
       let prices = customer.get().prices
       let items_id_array = []
-      let custs_id_array = []
 
       prices.forEach(function (data) {
         items_id_array.push( data.get('items_cid') )
-        custs_id_array.push( data.get('custs_cid') )
       })
 
       Item
