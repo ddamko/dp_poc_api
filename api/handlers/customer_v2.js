@@ -8,7 +8,7 @@ module.exports.get_customer_items = {
     .findOne({
       include: [{
         model: Price,
-        attributes: [ 'items_cid','custs_cid' ]
+        attributes: [ 'items_cid' ]
       }],
       attributes: [ 'cust_key', 'cust_name', 'cid' ],
       where: {
