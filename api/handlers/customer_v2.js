@@ -7,7 +7,8 @@ module.exports.get_customer_items = {
   Customer
     .findOne({
       include: [{
-        model: Price
+        model: Price,
+        attributes: [ 'items_cid','custs_cid' ]
       }],
       attributes: [ 'cust_key', 'cust_name', 'cid' ],
       where: {
@@ -26,7 +27,7 @@ module.exports.get_customer_items = {
       })
 
       Item
-        .findAndCountAll({
+        .findAll({
           include: [{
             model: Price,
             where: { custs_cid: customer.get('cid') },
