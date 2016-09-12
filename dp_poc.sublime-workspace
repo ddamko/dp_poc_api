@@ -1,0 +1,305 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cus",
+				"cust_type"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"Or",
+				"OrderItem"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "api/handlers/customer.js",
+			"settings":
+			{
+				"buffer_size": 447,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "for",
+		"selected_items":
+		[
+			[
+				"for",
+				"Format Code"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Mater",
+				"Material Theme: Activate theme"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"esl",
+				"ESLint"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"JSLint"
+			],
+			[
+				"Package Control: insa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/derek/code/hapi-api",
+		"/home/derek/code/hapi-api/api",
+		"/home/derek/code/hapi-api/api/handlers",
+		"/home/derek/code/hapi-api/api/models"
+	],
+	"file_history":
+	[
+		"/home/derek/code/hapi-api/api/index.js",
+		"/home/derek/code/hapi-api/api/connector.js",
+		"/home/derek/code/hapi-api/api/models/custs.js",
+		"/home/derek/code/hapi-api/api/handlers/home.js",
+		"/home/derek/code/hapi-api/node_modules/sequelize/lib/model.js",
+		"/home/derek/code/hapi-api/api/models/customer.js",
+		"/home/derek/code/hapi-api/server.js",
+		"/home/derek/code/hapi-api/api/handlers/connector.js",
+		"/home/derek/code/hapi-api/.babelrc",
+		"/home/derek/code/hapi-api/package.json",
+		"/home/derek/code/hapi-api/npm-debug.log",
+		"/home/derek/.config/sublime-text-3/Packages/User/EsFormatter.sublime-settings",
+		"/home/derek/.config/sublime-text-3/Packages/EsFormatter/EsFormatter.sublime-settings",
+		"/home/derek/code/hapi-api/api/models/item.js",
+		"/home/derek/.config/sublime-text-3/Packages/EsFormatter/Default (Linux).sublime-keymap",
+		"/home/derek/code/hapi-api/api/models/cntrys.js",
+		"/home/derek/code/hapi-api/config/manifest.json",
+		"/home/derek/code/apollo-starter-kit/sa",
+		"/home/derek/code/apollo-starter-kit/data/connectors.js",
+		"/home/derek/code/apollo-starter-kit/data/resolvers.js",
+		"/home/derek/code/hapi-api/jsconfig.json",
+		"/home/derek/code/hapi-api/auth.js",
+		"/home/derek/code/hapi-api/.travis.yml",
+		"/home/derek/code/dp_poc/package.json",
+		"/home/derek/code/angular2-apollo/examples/hello-world/typings/modules/graphql/index.d.ts",
+		"/home/derek/code/angular2-apollo/examples/hello-world/api/index.js",
+		"/home/derek/code/angular2-apollo/examples/hello-world/src/tsconfig.json",
+		"/home/derek/code/angular2-apollo/examples/hello-world/src/typings.d.ts",
+		"/home/derek/code/angular2-apollo/examples/hello-world/src/main.ts",
+		"/home/derek/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/derek/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/derek/code/apollo-starter-kit/server.js",
+		"/home/derek/.config/sublime-text-3/Packages/ESLint/ESLint.sublime-settings",
+		"/home/derek/.config/sublime-text-3/Packages/JSLint/JSLint.sublime-settings",
+		"/home/derek/code/apollo-starter-kit/data/schema.js",
+		"/home/derek/code/apollo-starter-kit/data/mocks.js",
+		"/home/derek/code/sql_server_test/index.js",
+		"/home/derek/code/sql_server_test/package.json",
+		"/home/derek/code/sql_server_test/reply.json"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/home/derek/code/hapi-api/api"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fieldName:",
+			"allowNull"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "api/handlers/customer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								202,
+								202
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "dp_poc.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
