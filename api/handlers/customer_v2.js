@@ -2,7 +2,8 @@ import Sequelize from 'sequelize';
 import { Customer, Item, Price } from '../connector';
 
 module.exports.get_customer_items = {
-	handler: function (request, reply) { 
+  handler: function (request, reply) {
+  auth: 'jwt',
 
   Customer
     .findOne({
@@ -29,7 +30,7 @@ module.exports.get_customer_items = {
           include: [{
             model: Price,
             where: { custs_cid: customer.get('cid') },
-            attributes: [ 'tier_type','sell','note_1' ]
+            attributes: [ 'tier_type','cost','sell', 'items_cid' ]
           }],
           attributes: [ 'item_key', 'id_no', 'short_name', 'descrip' ],
           where: { cid: { $in: items_id_array } }
@@ -37,9 +38,6 @@ module.exports.get_customer_items = {
         .then(function(items){
           return reply({ result: items })
         })
-      
     });
-
-    
   }
 }
