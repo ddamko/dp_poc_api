@@ -30,7 +30,7 @@ module.exports.get_customer_items = {
           include: [{
             model: Price,
             where: { custs_cid: customer.get('cid') },
-            attributes: [ 'tier_type','cost','sell', 'items_cid' ]
+            attributes: [ 'sell' ]
           }],
           attributes: [ 'item_key', 'id_no', 'short_name', 'descrip' ],
           where: { cid: { $in: items_id_array } }
