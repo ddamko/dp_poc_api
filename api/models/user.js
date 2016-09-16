@@ -28,8 +28,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.UUIDV4,
       allowNull: true,
       references: {
-        model: 'customer',
-        key: 'id'
+        model: 'custs',
+        key: 'cid'
       }
     }
   }, {

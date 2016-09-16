@@ -1,32 +1,41 @@
-import { Customer, Country, Item, Price } from '../connector';
+import Sequelize from 'sequelize';
+import { Customer, Item, Price } from '../connector';
 
 module.exports.get_customer_items = {
-	handler: function (request, reply) { 
+  handler: function (request, reply) {
 
   Customer
     .findOne({
-      attributes: [ 'cntrys_cid' ],
-      where: { cust_key: request.query.key }
+      include: [{
+        model: Price,
+        attributes: [ 'items_cid' ]
+      }],
+      attributes: [ 'cust_key', 'cust_name', 'cid' ],
+      where: {
+        cust_key: request.query.key
+      }
     })
-    .then(function(customer_key) {
-      
-      Price
+    .then(function(customer) {
+
+      let prices = customer.get().prices
+      let items_id_array = []
+
+      prices.forEach(function (data) {
+        items_id_array.push( data.get('items_cid') )
+      })
+
+      Item
         .findAll({
-          where: { cntrys_cid: customer_key.get().cntrys_cid }
+          include: [{
+            model: Price,
+            where: { custs_cid: customer.get('cid') },
+            attributes: [ 'sell' ]
+          }],
+          attributes: [ 'item_key', 'id_no', 'short_name', 'descrip' ],
+          where: { cid: { $in: items_id_array } }
         })
-        .then(function(prices) {
-
-          console.log(prices)
-          
-          // Item
-          //   .findAll({
-          //     where: { cid: prices.get().items_cid  }
-          //   })
-          //   .then(function(items_with_prices){
-          //     return reply({ result: items_with_prices })
-          //   })
-
-          return reply({ result: "Look at the concole." })
+        .then(function(items){
+          return reply({ result: items })
         })
     });
   }
