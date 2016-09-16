@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.UUIDV4,
       allowNull: false,
-      defaultValue: '(newsequentialid())',
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     password_hash: {
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    customer_id: {
+    custs_cid: {
       type: DataTypes.UUIDV4,
       allowNull: true,
       references: {
@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'user'
+    tableName: 'user',
+    timestamps: false,
   });
 };

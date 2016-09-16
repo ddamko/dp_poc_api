@@ -19,4 +19,4 @@ Customer.hasMany(Price, { foreignKey: 'custs_cid' });
 Item.hasMany(Price, { foreignKey: 'items_cid' });
 User.hasOne(Customer, { foreignKey: 'cid'});
 
-export { Customer, Item, Price };
+export { Customer, Item, Price, User };

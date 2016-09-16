@@ -1,24 +1,22 @@
 import Sequelize from 'sequelize';
 import { Customer, User } from '../connector';
-let bcrypt = require('bcrypt');
+let bcrypt = require('bcryptjs');
 
 module.exports.register_user = {
   handler: function (request, reply) {
-    const saltRounds = 10;
+    const salt = bcrypt.genSaltSync(15);
+    const hash = bcrypt.hashSync(request.query.pass, salt);
 
-    var password = {};
-
-    bcrypt.genSalt(saltRounds, function(error, salt) {
-      bcrypt.hash(request.query.pass, salt, function(error, hash) {
-        password.hash = hash;
-        password.salt = salt;
-        return password;
+    User
+      .create({
+        username: request.query.username,
+        custs_cid: request.query.customer_id,
+        password_hash: hash,
+        password_salt: salt
+      })
+      .then(function(user) {
+        console.log(user)
+        return reply({ result: 'Testing..' })
       });
-    });
-
-    console.log(password);
-
-    return reply({ result: 'Password Hashed!' })
-
   }
 }
