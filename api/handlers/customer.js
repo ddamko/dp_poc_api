@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 import { Customer, Item, Price } from '../connector';
 
 module.exports.get_customer_items = {
+  auth: 'jwt',
   handler: function (request, reply) {
 
   Customer
@@ -12,31 +13,31 @@ module.exports.get_customer_items = {
       }],
       attributes: [ 'cust_key', 'cust_name', 'cid' ],
       where: {
-        cust_key: request.query.key
+        cid: request.query.id
       }
     })
-    .then(function(customer) {
+    .then(customer => {
 
-      let prices = customer.get().prices
-      let items_id_array = []
+      let prices = customer.prices;
+      let items_id_array = [];
 
-      prices.forEach(function (data) {
-        items_id_array.push( data.get('items_cid') )
-      })
+      prices.forEach(data => {
+        items_id_array.push( data.items_cid );
+      });
 
       Item
         .findAll({
           include: [{
             model: Price,
-            where: { custs_cid: customer.get('cid') },
+            where: { custs_cid: customer.cid },
             attributes: [ 'sell' ]
           }],
           attributes: [ 'item_key', 'id_no', 'short_name', 'descrip' ],
           where: { cid: { $in: items_id_array } }
         })
-        .then(function(items){
-          return reply({ result: items })
-        })
+        .then(items => {
+          return reply({ result: items });
+        });
     });
   }
 }

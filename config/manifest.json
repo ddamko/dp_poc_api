@@ -1,7 +1,7 @@
 {
   "connections": [
     {
-      "host": "10.0.1.193",
+      "host": "localhost",
       "port": 8000,
       "routes": {
         "cors": true

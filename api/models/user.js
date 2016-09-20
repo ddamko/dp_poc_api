@@ -10,19 +10,23 @@ module.exports = function(sequelize, DataTypes) {
     },
     password_hash: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     password_salt: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     token: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     custs_cid: {
       type: DataTypes.UUIDV4,
