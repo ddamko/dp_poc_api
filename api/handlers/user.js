@@ -33,11 +33,15 @@ module.exports.validate_user = {
       })
       .then(user => {
 
+        if (user === null) {
+          return reply(false);
+        }
+
         bcrypt_then.compare(request.query.pass, user.get().password_hash).then(valid => {
           if (valid) {
-            return reply({ result: { token: user.get().token, custs_cid: user.get().custs_cid } });
+            return reply({ result: { token: user.get().token, custs_cid: user.get().custs_cid } }).code(200);
           }
-            return reply({ result: valid });
+            return reply(false);
         });
 
       });
