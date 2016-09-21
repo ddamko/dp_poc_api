@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import { Customer, User } from '../connector';
 const bcrypt = require('bcryptjs');
+const bcrypt_then = require('bcrypt-then');
 
 module.exports.register_user = {
   handler: function (request, reply) {
@@ -31,10 +32,14 @@ module.exports.validate_user = {
         where: { username: request.params.username }
       })
       .then(user => {
-        if ( bcrypt.compareSync(request.query.pass, user.password_hash) ) {
-          return reply({ result: { token: user.token, custs_cid: user.custs_cid } });
-        }
-          return reply({ result: 'Login Fail! :-('});
+
+        bcrypt_then.compare(request.query.pass, user.get().password_hash).then(valid => {
+          if (valid) {
+            return reply({ result: { token: user.get().token, custs_cid: user.get().custs_cid } });
+          }
+            return reply({ result: valid });
+        });
+
       });
   }
 }
