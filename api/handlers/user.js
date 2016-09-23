@@ -26,23 +26,58 @@ module.exports.register_user = {
 module.exports.validate_user = {
   handler: function (request, reply) {
 
+    console.log(request.payload);
+
     User
       .findOne({
-        attributes: [ 'token', 'custs_cid', 'password_hash' ],
-        where: { username: request.params.username }
+        attributes: [ 'id', 'token', 'custs_cid', 'username', 'email', 'first_name', 'last_name', 'password_hash' ],
+        where: { username: request.payload.username }
       })
       .then(user => {
 
         if (user === null) {
-          return reply(false);
+          return reply({ message: 'INVALID REQUEST' }).code(401);
         }
 
-        bcrypt_then.compare(request.query.pass, user.get().password_hash).then(valid => {
+        bcrypt_then.compare(request.payload.password, user.get().password_hash).then(valid => {
           if (valid) {
-            return reply({ result: { token: user.get().token, custs_cid: user.get().custs_cid } }).code(200);
+            return reply({
+              data: {
+                msg: 'LOGIN SUCCESSFUL',
+              },
+              meta: {
+                id: user.get().id,
+                token: user.get().token,
+                expires: '2020-01-01',
+                profile: {
+                  firstName: user.get().first_name,
+                  lastName: user.get().last_name,
+                },
+              },
+            }).code(200);
           }
-            return reply(false);
+            return reply({ message: 'LOGIN FAILED' }).code(401);
         });
+
+      });
+  }
+}
+
+module.exports.authenticate_user = {
+  handler: function (request, reply) {
+
+    User
+      .findOne({
+        attributes: [ 'token' ],
+        where: { token: request.params.token }
+      })
+      .then(token => {
+
+        if (token === null) {
+          return reply(false);
+        } else {
+          return reply(true);
+        }
 
       });
   }
