@@ -17,7 +17,6 @@ module.exports.register_user = {
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFudGhvbnkgVmFsaWQgVXNlciIsImlhdCI6MTQyNTQ3MzUzNX0.KA68l60mjiC8EXaC2odnjFwdIDxE__iDu5RwLdN1F2A"
       })
       .then(user => {
-        console.log(user);
         return reply({ result: 'Testing...' });
       });
   }
@@ -25,8 +24,6 @@ module.exports.register_user = {
 
 module.exports.validate_user = {
   handler: function (request, reply) {
-
-    console.log(request.payload);
 
     User
       .findOne({

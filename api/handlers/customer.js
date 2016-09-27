@@ -2,8 +2,10 @@ import Sequelize from 'sequelize';
 import { Customer, Item, Price } from '../connector';
 
 module.exports.get_customer_items = {
-  auth: 'jwt',
+  // auth: 'jwt',
   handler: function (request, reply) {
+
+  console.log(request);
 
   Customer
     .findOne({
@@ -13,7 +15,7 @@ module.exports.get_customer_items = {
       }],
       attributes: [ 'cust_key', 'cust_name', 'cid' ],
       where: {
-        cid: request.query.id
+        cid: request.payload
       }
     })
     .then(customer => {
@@ -36,7 +38,15 @@ module.exports.get_customer_items = {
           where: { cid: { $in: items_id_array } }
         })
         .then(items => {
-          return reply({ result: items });
+          
+          console.log(items);
+
+          return reply({
+            data: {
+              message: 'RETURNED ITEMS FOR CUSTOMER',
+              items: items
+            },
+          }).code(200);
         });
     });
   }
